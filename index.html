@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Night Made for You ❤️</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap');
+         :root {
+            --black: #080808;
+            --panel: #111010;
+            --red: #c51f35;
+            --bright-red: #ff334f;
+            --soft-red: #7d1826;
+            --white: #f7f1ed;
+            --muted: #a49a97;
+            --line: rgba(255, 255, 255, .10);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(ellipse at 50% 0%, rgba(197, 31, 53, .15), transparent 50%), radial-gradient(ellipse at 100% 55%, rgba(100, 0, 15, .10), transparent 45%);
+        }
+        
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+         ::selection {
+            background: var(--red);
+            color: white;
+        }
+        
+        .grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 20;
+            opacity: .035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+        }
+        
+        .nav {
+            width: min(1180px, 90%);
+            margin: auto;
+            height: 84px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: var(--bright-red);
+        }
+        
+        .nav-right {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        
+        .hero {
+            min-height: 690px;
+            width: min(1180px, 90%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            gap: 45px;
+            padding: 75px 0 100px;
+        }
+        
+        .eyebrow {
+            color: var(--bright-red);
+            letter-spacing: 5px;
+            font-size: 10px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+        
+        h1 {
+            font-size: clamp(58px, 8vw, 108px);
+            line-height: .91;
+            letter-spacing: -3px;
+        }
+        
+        h1 em {
+            color: var(--bright-red);
+            font-weight: 400;
+        }
+        
+        .hero-copy {
+            margin-top: 30px;
+            color: var(--muted);
+            line-height: 1.9;
+            max-width: 440px;
+            font-size: 14px;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+            margin-top: 34px;
+        }
+        
+        .btn {
+            border: 1px solid var(--red);
+            background: var(--red);
+            color: white;
+            padding: 14px 21px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: .25s;
+        }
+        
+        .btn:hover {
+            background: var(--bright-red);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border-color: rgba(255, 255, 255, .22);
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--bright-red);
+            background: rgba(197, 31, 53, .12);
+        }
+        
+        .hero-art {
+            min-height: 390px;
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+        
+        .ring {
+            position: absolute;
+            width: min(330px, 75vw);
+            aspect-ratio: 1;
+            border: 1px solid rgba(255, 51, 79, .25);
+            border-radius: 50%;
+            box-shadow: 0 0 70px rgba(197, 31, 53, .08), inset 0 0 70px rgba(197, 31, 53, .05);
+        }
+        
+        .ring::before,
+        .ring::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 50%;
+            inset: 20px;
+        }
+        
+        .ring::after {
+            inset: 43px;
+            border-color: rgba(255, 51, 79, .13);
+        }
+        
+        .hero-heart {
+            font-size: 112px;
+            color: var(--bright-red);
+            text-shadow: 0 0 35px rgba(255, 51, 79, .45);
+            animation: heartbeat 2s infinite;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .orbit-label {
+            position: absolute;
+            bottom: 14px;
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: var(--muted);
+        }
+        
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            12% {
+                transform: scale(1.08);
+            }
+            24% {
+                transform: scale(1);
+            }
+            36% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .section {
+            width: min(1040px, 90%);
+            margin: auto;
+            padding: 90px 0;
+        }
+        
+        .section-head {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .section-head .eyebrow {
+            margin-bottom: 15px;
+        }
+        
+        .section-head h2 {
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.05;
+        }
+        
+        .section-head p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 16px auto 0;
+            max-width: 530px;
+        }
+        
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            max-width: 700px;
+            margin: auto;
+        }
+        
+        .time-box {
+            padding: 27px 10px;
+            background: linear-gradient(145deg, #171313, #0b0b0b);
+            border: 1px solid var(--line);
+            text-align: center;
+        }
+        
+        .time-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(35px, 6vw, 57px);
+            color: var(--white);
+            line-height: 1;
+        }
+        
+        .time-label {
+            color: var(--bright-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 9px;
+            margin-top: 13px;
+        }
+        
+        .countdown-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 24px;
+            line-height: 1.8;
+        }
+        
+        .calendar-wrap {
+            max-width: 620px;
+            margin: auto;
+            border: 1px solid var(--line);
+            padding: 30px;
+            background: rgba(255, 255, 255, .015);
+        }
+        
+        .calendar-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 27px;
+        }
+        
+        .calendar-top h3 {
+            font-size: 32px;
+        }
+        
+        .calendar-top span {
+            color: var(--bright-red);
+            letter-spacing: 3px;
+            font-size: 10px;
+        }
+        
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 7px;
+            text-align: center;
+        }
+        
+        .day-name {
+            color: var(--muted);
+            font-size: 10px;
+            padding: 9px 0;
+        }
+        
+        .date {
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: #c5bfbc;
+            font-size: 12px;
+            position: relative;
+            border: 1px solid transparent;
+        }
+        
+        .date.birthday {
+            background: var(--red);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 0 24px rgba(197, 31, 53, .35);
+            border-radius: 50%;
+        }
+        
+        .date.birthday::after {
+            content: "♥";
+            position: absolute;
+            bottom: -5px;
+            font-size: 9px;
+            color: var(--bright-red);
+        }
+        
+        .date.today {
+            border-color: var(--bright-red);
+            border-radius: 50%;
+        }
+        
+        .calendar-legend {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 24px;
+        }
+        
+        .legend-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+        
+        .cake-section {
+            background: linear-gradient(180deg, transparent, rgba(197, 31, 53, .055), transparent);
+        }
+        
+        .cake-area {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        .cake-stage {
+            min-height: 330px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            padding-bottom: 27px;
+        }
+        
+        .cake {
+            width: 230px;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+            transition: transform .3s;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .6));
+        }
+        
+        .cake:hover {
+            transform: translateY(-4px);
+        }
+        
+        .cake-top {
+            width: 230px;
+            height: 48px;
+            border-radius: 50%;
+            background: #f2c8c0;
+            border: 3px solid #9b454c;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .cake-top::before {
+            content: "♥  ♥  ♥";
+            color: var(--red);
+            font-size: 15px;
+            letter-spacing: 12px;
+            position: absolute;
+            inset: 12px 0 auto 0;
+            text-align: center;
+        }
+        
+        .cake-body {
+            width: 230px;
+            height: 75px;
+            margin-top: -20px;
+            background: linear-gradient(90deg, #76212b, #b54b51 50%, #6e1824);
+            border-radius: 0 0 13px 13px;
+            position: relative;
+            z-index: 2;
+            border-bottom: 7px solid #441016;
+        }
+        
+        .cake-body::before {
+            content: "";
+            position: absolute;
+            height: 20px;
+            top: -1px;
+            left: 0;
+            right: 0;
+            background: #f2c8c0;
+            border-radius: 0 0 50% 50%;
+        }
+        
+        .cake-base {
+            width: 255px;
+            height: 28px;
+            margin: -3px auto 0;
+            border-radius: 50%;
+            background: linear-gradient(#d5b9ad, #81615a);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .candle {
+            width: 12px;
+            height: 54px;
+            position: absolute;
+            left: calc(50% - 6px);
+            top: -48px;
+            z-index: 5;
+            background: repeating-linear-gradient(45deg, #f5e5d8 0 5px, #b51e35 5px 10px);
+            border-radius: 3px;
+        }
+        
+        .flame {
+            width: 18px;
+            height: 27px;
+            background: radial-gradient(ellipse at 50% 70%, #fff9c4 0 15%, #ffb13b 35%, #ff453e 72%);
+            border-radius: 60% 40% 55% 45%;
+            position: absolute;
+            top: -28px;
+            left: -3px;
+            transform: rotate(2deg);
+            box-shadow: 0 0 18px rgba(255, 95, 42, .85);
+            animation: flicker .8s infinite alternate;
+            transform-origin: bottom;
+        }
+        
+        .flame.out {
+            display: none;
+        }
+        
+        @keyframes flicker {
+            from {
+                transform: rotate(-5deg) scale(.94);
+            }
+            to {
+                transform: rotate(5deg) scale(1.08);
+            }
+        }
+        
+        .cake-platform {
+            width: 310px;
+            height: 13px;
+            background: linear-gradient(#c8b8b3, #62504c);
+            border-radius: 50%;
+            margin-top: 0;
+            box-shadow: 0 12px 20px rgba(0, 0, 0, .45);
+        }
+        
+        .cake-instruction {
+            color: var(--muted);
+            font-size: 12px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .cake-message {
+            min-height: 25px;
+            color: #ff9aa7;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+        
+        .button-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+        }
+        
+        .wish-card {
+            min-height: 185px;
+            padding: 25px 21px;
+            background: linear-gradient(145deg, #151212, #0b0b0b);
+            border: 1px solid var(--line);
+            transition: .25s;
+        }
+        
+        .wish-card:hover {
+            border-color: rgba(255, 51, 79, .5);
+            transform: translateY(-4px);
+        }
+        
+        .wish-number {
+            font-size: 10px;
+            color: var(--bright-red);
+            letter-spacing: 3px;
+        }
+        
+        .wish-card h3 {
+            font-size: 25px;
+            margin: 15px 0 9px;
+        }
+        
+        .wish-card p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+        
+        .letter-card {
+            max-width: 720px;
+            margin: auto;
+            padding: clamp(25px, 6vw, 55px);
+            border: 1px solid rgba(255, 51, 79, .28);
+            background: linear-gradient(145deg, #171010, #0b0b0b);
+            text-align: center;
+            position: relative;
+        }
+        
+        .letter-card::before {
+            content: "FOR YOUR EYES ONLY";
+            position: absolute;
+            top: 17px;
+            left: 0;
+            right: 0;
+            color: var(--bright-red);
+            font-size: 8px;
+            letter-spacing: 4px;
+        }
+        
+        .envelope {
+            font-size: 49px;
+            margin: 15px 0 20px;
+        }
+        
+        .letter-card h2 {
+            font-size: clamp(34px, 5vw, 49px);
+            margin-bottom: 14px;
+        }
+        
+        .letter-card>p {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 13px;
+            max-width: 490px;
+            margin: auto auto 24px;
+        }
+        
+        .letter-content {
+            text-align: left;
+            border-top: 1px solid var(--line);
+            padding-top: 25px;
+            margin-top: 25px;
+            color: #e4d9d5;
+            line-height: 2;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            white-space: pre-line;
+            animation: reveal .7s ease;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .music-box {
+            max-width: 590px;
+            margin: auto;
+            padding: 27px;
+            border: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: var(--panel);
+        }
+        
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .music-icon {
+            width: 49px;
+            height: 49px;
+            display: grid;
+            place-items: center;
+            background: rgba(197, 31, 53, .14);
+            border: 1px solid rgba(255, 51, 79, .25);
+            color: var(--bright-red);
+            font-size: 22px;
+        }
+        
+        .music-info h3 {
+            font-size: 23px;
+        }
+        
+        .music-info p {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 4px;
+        }
+        
+        .music-toggle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: var(--red);
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .music-bars {
+            display: flex;
+            gap: 4px;
+            height: 20px;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .music-bars span {
+            width: 3px;
+            height: 5px;
+            background: var(--bright-red);
+            border-radius: 3px;
+        }
+        
+        .music-bars.playing span {
+            animation: bars .55s ease-in-out infinite alternate;
+        }
+        
+        .music-bars span:nth-child(2) {
+            animation-delay: .1s;
+        }
+        
+        .music-bars span:nth-child(3) {
+            animation-delay: .25s;
+        }
+        
+        .music-bars span:nth-child(4) {
+            animation-delay: .15s;
+        }
+        
+        .music-bars span:nth-child(5) {
+            animation-delay: .35s;
+        }
+        
+        @keyframes bars {
+            to {
+                height: 19px;
+            }
+        }
+        
+        .final-section {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+        
+        .final-heart {
+            font-size: 54px;
+            color: var(--bright-red);
+            margin-bottom: 20px;
+            animation: heartbeat 2s infinite;
+        }
+        
+        .final-section h2 {
+            font-size: clamp(43px, 7vw, 75px);
+            line-height: 1;
+        }
+        
+        .final-section h2 em {
+            color: var(--bright-red);
+        }
+        
+        .final-section p {
+            color: var(--muted);
+            line-height: 1.9;
+            max-width: 500px;
+            margin: 20px auto 27px;
+            font-size: 13px;
+        }
+        
+        .footer {
+            border-top: 1px solid var(--line);
+            padding: 28px 5%;
+            text-align: center;
+            color: #756d6b;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .footer span {
+            color: var(--bright-red);
+        }
+        
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 30;
+            color: var(--bright-red);
+            animation: floatUp 2.5s ease-out forwards;
+        }
+        
+        @keyframes floatUp {
+            from {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(.7);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-220px) rotate(35deg) scale(1.4);
+            }
+        }
+        
+        @media (max-width: 760px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 75px 0 60px;
+                gap: 30px;
+                text-align: center;
+            }
+            .hero-copy {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-art {
+                min-height: 300px;
+            }
+            .hero-heart {
+                font-size: 90px;
+            }
+            .ring {
+                width: 270px;
+            }
+            .wishes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .section {
+                padding: 70px 0;
+            }
+        }
+        
+        @media (max-width: 450px) {
+            .nav {
+                height: 70px;
+            }
+            .logo {
+                font-size: 21px;
+            }
+            .nav-right {
+                font-size: 8px;
+                letter-spacing: 1.5px;
+            }
+            .wishes-grid {
+                grid-template-columns: 1fr;
+            }
+            .wish-card {
+                min-height: auto;
+            }
+            .calendar-wrap {
+                padding: 17px 10px;
+            }
+            .calendar {
+                gap: 2px;
+            }
+            .date {
+                font-size: 11px;
+            }
+            .countdown-grid {
+                gap: 6px;
+            }
+            .time-box {
+                padding: 22px 4px;
+            }
+            .time-label {
+                letter-spacing: 1px;
+                font-size: 8px;
+            }
+            .music-box {
+                padding: 18px;
+            }
+            .music-info h3 {
+                font-size: 20px;
+            }
+            .cake {
+                transform: scale(.88);
+                transform-origin: bottom center;
+            }
+            .cake:hover {
+                transform: scale(.88) translateY(-4px);
+            }
+            .cake-platform {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grain"></div>
+
+    <nav class="nav">
+        <a class="logo" href="#">A NIGHT <span>♥</span> FOR YOU</a>
+        <div class="nav-right">14 · NOV · 2026</div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">A little world made for one person</div>
+                <h1>Today is<br>about <em>you.</em></h1>
+                <p class="hero-copy">
+                    Out of all the ordinary days in this world, one day gave us you. This little corner of the internet is my way of making your birthday feel as special as you are to me.
+                </p>
+                <div class="hero-actions">
+                    <a href="#countdown" class="btn">Your special day ↓</a>
+                    <a href="#letter" class="btn btn-outline">A letter for you</a>
+                </div>
+            </div>
+
+            <div class="hero-art">
+                <div class="ring"></div>
+                <div class="hero-heart">♥</div>
+                <div class="orbit-label">MY FAVOURITE HUMAN · ALWAYS</div>
+            </div>
+        </section>
+
+        <section class="section" id="countdown">
+            <div class="section-head">
+                <div class="eyebrow">The moment we're waiting for</div>
+                <h2>Counting down to <em style="color:var(--bright-red)">you.</em></h2>
+                <p>Four little numbers, one very big reason to smile.</p>
+            </div>
+
+            <div class="countdown-grid">
+                <div class="time-box">
+                    <div class="time-number" id="days">00</div>
+                    <div class="time-label">Days</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-number" id="hours">00</div>
+                    <div class="time-label">Hours</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-number" id="minutes">00</div>
+                    <div class="time-label">Minutes</div>
+                </div>
+                <div class="time-box">
+                    <div class="time-number" id="seconds">00</div>
+                    <div class="time-label">Seconds</div>
+                </div>
+            </div>
+            <p class="countdown-note" id="countdown-note">
+                Every second brings us closer to your day. ❤️
+            </p>
+        </section>
+
+        <section class="section" id="calendar-section">
+            <div class="section-head">
+                <div class="eyebrow">Save the date</div>
+                <h2>November, <em style="color:var(--bright-red)">2026.</em></h2>
+                <p>Thirty days in the month. But one date has my whole heart.</p>
+            </div>
+
+            <div class="calendar-wrap">
+                <div class="calendar-top">
+                    <h3>November <span>2026</span></h3>
+                    <span>THE BIRTHDAY EDITION</span>
+                </div>
+                <div class="calendar" id="calendar"></div>
+                <div class="calendar-legend">
+                    <span class="legend-dot"></span> The day my favourite person was born
+                </div>
+            </div>
+        </section>
+
+        <section class="section cake-section" id="cake-section">
+            <div class="section-head">
+                <div class="eyebrow">Make a little wish</div>
+                <h2>A cake, just <em style="color:var(--bright-red)">for you.</em></h2>
+                <p>Tap the cake or the candle. Close your eyes, make a wish, and let this moment be yours.</p>
+            </div>
+
+            <div class="cake-area">
+                <div class="cake-stage">
+                    <div class="cake" id="cake" role="button" tabindex="0" aria-label="Interact with the birthday cake">
+                        <div class="cake-top">
+                            <div class="candle">
+                                <div class="flame" id="flame"></div>
+                            </div>
+                        </div>
+                        <div class="cake-body"></div>
+                        <div class="cake-base"></div>
+                    </div>
+                    <div class="cake-platform"></div>
+                </div>
+
+                <div class="cake-message" id="cake-message">One wish. A thousand possibilities.</div>
+                <p class="cake-instruction">Make a wish, then blow out the candle. Tap again to relight it.</p>
+                <div class="button-row">
+                    <button class="btn" id="candle-btn">Blow out candle ✨</button>
+                    <button class="btn btn-outline" id="heart-btn">Send some love ♥</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="wishes">
+            <div class="section-head">
+                <div class="eyebrow">Things I wish for you</div>
+                <h2>More than just <em style="color:var(--bright-red)">a birthday.</em></h2>
+                <p>If I could gift you anything beyond today, it would be these things for every day that follows.</p>
+            </div>
+
+            <div class="wishes-grid">
+                <article class="wish-card">
+                    <div class="wish-number">01 / HAPPINESS</div>
+                    <h3>A lighter heart.</h3>
+                    <p>I hope life gives you more reasons to smile than reasons to worry, and that your happiest moments find you when you least expect them.</p>
+                </article>
+
+                <article class="wish-card">
+                    <div class="wish-number">02 / COURAGE</div>
+                    <h3>Faith in yourself.</h3>
+                    <p>On the days when your confidence feels far away, I hope you remember how much you are capable of. Keep going, even slowly.</p>
+                </article>
+
+                <article class="wish-card">
+                    <div class="wish-number">03 / PEACE</div>
+                    <h3>Quiet mornings.</h3>
+                    <p>May your mind find rest, your heart find peace, and your days have little pockets of calm that belong only to you.</p>
+                </article>
+
+                <article class="wish-card">
+                    <div class="wish-number">04 / DREAMS</div>
+                    <h3>Big beginnings.</h3>
+                    <p>I hope you get to live the life you imagine, meet the version of yourself you dream of becoming, and feel proud of the journey.</p>
+                </article>
+
+                <article class="wish-card">
+                    <div class="wish-number">05 / MEMORIES</div>
+                    <h3>Beautiful ordinary days.</h3>
+                    <p>Not every beautiful memory needs a grand occasion. I hope even the smallest moments turn into stories you'll love remembering.</p>
+                </article>
+
+                <article class="wish-card">
+                    <div class="wish-number">06 / LOVE</div>
+                    <h3>Love that feels safe.</h3>
+                    <p>I hope you always feel heard, respected, understood, and appreciated. You deserve kindness that shows up in actions, too.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="letter">
+            <div class="section-head">
+                <div class="eyebrow">Sealed with love</div>
+                <h2>Something I <em style="color:var(--bright-red)">need you to know.</em></h2>
+            </div>
+
+            <div class="letter-card">
+                <div class="envelope">✉</div>
+                <h2>A little letter for you.</h2>
+                <p>Not a perfect speech. Not a grand promise. Just a few honest words, saved here for you.</p>
+                <button class="btn" id="open-letter">Open your letter ♥</button>
+
+                <div class="letter-content hidden" id="letter-content">Happy Birthday, my favourite person. ❤️ I wish I could put into words everything I feel when I think about you, but some feelings are simply bigger than sentences. Today, I hope you pause for a moment and realise that your existence matters.
+                    Not just because it's your birthday, not because of what you achieve, and not because of what you do for anyone else. You matter simply because you are you. I hope this new year of your life brings you closer to your dreams. I hope
+                    you laugh until your cheeks hurt, find peace after difficult days, and discover beautiful things about yourself that you haven't noticed yet. And if a day ever feels heavy, I hope you remember that you don't have to be perfect to be
+                    appreciated. You can be tired, uncertain, quiet, or still figuring things out. You are allowed to be human. Thank you for being someone I care about so deeply. If I could wrap up one feeling and give it to you today, it would be the
+                    feeling of knowing that someone is genuinely wishing good things for your life. So make your wish, eat your cake, smile a little extra, and let yourself be celebrated. Happy Birthday, babu. May life be gentle with your heart and generous
+                    with your dreams. With all my love, Your favourite person. ❤️</div>
+            </div>
+        </section>
+
+        <section class="section" id="music">
+            <div class="section-head">
+                <div class="eyebrow">A melody made in your browser</div>
+                <h2>Our little <em style="color:var(--bright-red)">soundtrack.</em></h2>
+                <p>This original little melody is generated by your browser. No music file or download needed.</p>
+            </div>
+
+            <div class="music-box">
+                <div class="music-info">
+                    <div class="music-icon">♫</div>
+                    <div>
+                        <h3>Midnight Wishes</h3>
+                        <p>An original little birthday melody</p>
+                        <div class="music-bars" id="music-bars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="music-toggle" id="music-toggle" aria-label="Play music">▶</button>
+            </div>
+            <p class="countdown-note">Turn your volume up a little. Press play to begin.</p>
+        </section>
+
+        <section class="section final-section">
+            <div class="final-heart">♥</div>
+            <div class="eyebrow">One last thing</div>
+            <h2>Make this year<br><em>beautiful.</em></h2>
+            <p>
+                The world is a little more interesting because you're in it. May your next chapter surprise you in the best possible ways. Today, tomorrow, and on all the ordinary days in between — you deserve good things.
+            </p>
+            <button class="btn" id="final-button">One more birthday surprise ✨</button>
+            <p id="final-message" class="hidden" style="color:#ff9aa7;font-family:'Cormorant Garamond',serif;font-size:25px">
+                Happy Birthday, babu. You are loved. Always remember that. ❤️
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        MADE WITH <span>♥</span> · JUST FOR YOU · 14 NOVEMBER 2026
+    </footer>
+
+    <script>
+        /* ===================================================
+                                                                                                                   PERSONALISE YOUR WEBSITE HERE
+                                                                                                                   Change the name and letter to your own words.
+                                                                                                                =================================================== */
+
+        const birthdayPerson = "Babu";
+        const birthdayDate = new Date(2026, 10, 14, 0, 0, 0);
+        // JavaScript months start at 0: 10 = November.
+
+        /* Live birthday countdown */
+        function updateCountdown() {
+            const now = new Date();
+            let difference = birthdayDate.getTime() - now.getTime();
+
+            if (difference <= 0) {
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+
+                const note = document.getElementById("countdown-note");
+                if (now.toDateString() === birthdayDate.toDateString()) {
+                    note.textContent = "IT'S YOUR BIRTHDAY! Today, the world celebrates you. ❤️";
+                } else {
+                    note.textContent = "The special day has arrived. Keep the memories close. ❤️";
+                }
+                return;
+            }
+
+            const days = Math.floor(difference / 86400000);
+            difference %= 86400000;
+            const hours = Math.floor(difference / 3600000);
+            difference %= 3600000;
+            const minutes = Math.floor(difference / 60000);
+            const seconds = Math.floor((difference % 60000) / 1000);
+
+            document.getElementById("days").textContent = String(days).padStart(2, "0");
+            document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        /* Build November 2026 calendar */
+        function buildCalendar() {
+            const calendar = document.getElementById("calendar");
+            const names = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+            names.forEach(name => {
+                const cell = document.createElement("div");
+                cell.className = "day-name";
+                cell.textContent = name;
+                calendar.appendChild(cell);
+            });
+
+            const firstDay = new Date(2026, 10, 1).getDay();
+            const totalDays = new Date(2026, 11, 0).getDate();
+            const today = new Date();
+
+            for (let i = 0; i < firstDay; i++) {
+                const blank = document.createElement("div");
+                blank.className = "date";
+                calendar.appendChild(blank);
+            }
+
+            for (let day = 1; day <= totalDays; day++) {
+                const cell = document.createElement("div");
+                cell.className = "date";
+                cell.textContent = day;
+
+                if (day === 14) {
+                    cell.classList.add("birthday");
+                    cell.title = "Your special day!";
+                    cell.setAttribute("aria-label", "November 14, birthday");
+                }
+
+                if (
+                    today.getFullYear() === 2026 &&
+                    today.getMonth() === 10 &&
+                    today.getDate() === day
+                ) {
+                    cell.classList.add("today");
+                }
+
+                calendar.appendChild(cell);
+            }
+        }
+
+        buildCalendar();
+
+        /* Candle interaction */
+        let candleLit = true;
+
+        function toggleCandle() {
+            const flame = document.getElementById("flame");
+            const message = document.getElementById("cake-message");
+            const button = document.getElementById("candle-btn");
+
+            candleLit = !candleLit;
+            flame.classList.toggle("out", !candleLit);
+
+            if (candleLit) {
+                message.textContent = "Your light is back. Make another wish. ❤️";
+                button.textContent = "Blow out candle ✨";
+                popHearts(8);
+            } else {
+                message.textContent = "Wish made. May something beautiful find you. ❤️";
+                button.textContent = "Relight candle 🕯";
+                popHearts(14);
+            }
+        }
+
+        document.getElementById("candle-btn").addEventListener("click", toggleCandle);
+        document.getElementById("cake").addEventListener("click", toggleCandle);
+        document.getElementById("cake").addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                toggleCandle();
+            }
+        });
+
+        /* Floating hearts */
+        function popHearts(amount = 12) {
+            const symbols = ["♥", "❤", "♡"];
+            for (let i = 0; i < amount; i++) {
+                const heart = document.createElement("div");
+                heart.className = "floating-heart";
+                heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                heart.style.left = (10 + Math.random() * 80) + "vw";
+                heart.style.top = (55 + Math.random() * 30) + "vh";
+                heart.style.fontSize = (13 + Math.random() * 23) + "px";
+                heart.style.animationDuration = (1.7 + Math.random() * 1.6) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3500);
+            }
+        }
+
+        document.getElementById("heart-btn").addEventListener("click", () => {
+            popHearts(24);
+            document.getElementById("cake-message").textContent =
+                "A little love, sent straight to you. ❤️";
+        });
+
+        /* Secret letter */
+        document.getElementById("open-letter").addEventListener("click", () => {
+            const letter = document.getElementById("letter-content");
+            const button = document.getElementById("open-letter");
+            letter.classList.toggle("hidden");
+
+            if (letter.classList.contains("hidden")) {
+                button.textContent = "Open your letter ♥";
+            } else {
+                button.textContent = "Fold the letter ↑";
+                letter.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
+                });
+                popHearts(10);
+            }
+        });
+
+        /* Original browser-generated melody: Web Audio API */
+        let audioContext = null;
+        let musicTimer = null;
+        let musicPlaying = false;
+        let noteIndex = 0;
+
+        const melody = [
+            [261.63, 0.0],
+            [329.63, 0.45],
+            [392.00, 0.9],
+            [329.63, 1.35],
+            [293.66, 1.8],
+            [349.23, 2.25],
+            [440.00, 2.7],
+            [392.00, 3.15],
+            [261.63, 3.6],
+            [329.63, 4.05],
+            [392.00, 4.5],
+            [523.25, 4.95],
+            [440.00, 5.4],
+            [392.00, 5.85],
+            [329.63, 6.3],
+            [293.66, 6.75]
+        ];
+
+        function playNote(frequency, startTime) {
+            if (!audioContext) return;
+
+            const oscillator = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+
+            oscillator.type = "sine";
+            oscillator.frequency.value = frequency;
+
+            gain.gain.setValueAtTime(0.0001, startTime);
+            gain.gain.exponentialRampToValueAtTime(0.12, startTime + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.38);
+
+            oscillator.connect(gain);
+            gain.connect(audioContext.destination);
+
+            oscillator.start(startTime);
+            oscillator.stop(startTime + 0.4);
+        }
+
+        function playNextNote() {
+            if (!musicPlaying || !audioContext) return;
+
+            const note = melody[noteIndex % melody.length];
+            playNote(note[0], audioContext.currentTime + 0.03);
+            noteIndex = (noteIndex + 1) % melody.length;
+        }
+
+        async function toggleMusic() {
+            const button = document.getElementById("music-toggle");
+            const bars = document.getElementById("music-bars");
+
+            if (!musicPlaying) {
+                try {
+                    if (!audioContext) {
+                        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                        if (!AudioContextClass) {
+                            alert("Your browser does not support browser-generated music. Try a recent version of Chrome.");
+                            return;
+                        }
+                        audioContext = new AudioContextClass();
+                    }
+
+                    if (audioContext.state === "suspended") {
+                        await audioContext.resume();
+                    }
+
+                    musicPlaying = true;
+                    button.textContent = "Ⅱ";
+                    button.setAttribute("aria-label", "Pause music");
+                    bars.classList.add("playing");
+                    playNextNote();
+                    musicTimer = setInterval(playNextNote, 450);
+                } catch (error) {
+                    alert("Music could not start. Please try clicking Play again.");
+                }
+            } else {
+                musicPlaying = false;
+                clearInterval(musicTimer);
+                button.textContent = "▶";
+                button.setAttribute("aria-label", "Play music");
+                bars.classList.remove("playing");
+            }
+        }
+
+        document.getElementById("music-toggle").addEventListener("click", toggleMusic);
+
+        /* Final surprise */
+        document.getElementById("final-button").addEventListener("click", () => {
+            const message = document.getElementById("final-message");
+            message.classList.remove("hidden");
+            document.getElementById("final-button").textContent = "A wish, just for you ❤️";
+            popHearts(35);
+        });
+
+        /* Personalise visible birthday name */
+        document.title = "A Night Made for " + birthdayPerson + " ❤️";
+    </script>
+</body>
+
+</html>
